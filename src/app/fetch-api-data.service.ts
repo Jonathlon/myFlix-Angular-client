@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
+const apiUrl = 'https://jonathlonmovieapp.herokuapp.com/';
 
 @Injectable({
   providedIn: 'root'
@@ -60,7 +60,7 @@ getOneMovie(title: string): Observable<any> {
 // Making the api call for the get director endpoint
 getOneDirector(directorName: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'movies/director/' + directorName, {
+    return this.http.get(apiUrl + 'movies/directors/' + directorName, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -74,7 +74,7 @@ getOneDirector(directorName: string): Observable<any> {
 // Making the api call for the get genre endpoint
 getOneGenre(genreName: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'movies/genre/' + genreName, {
+    return this.http.get(apiUrl + 'movies/genres/' + genreName, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -147,14 +147,15 @@ editUser(updatedUser: any): Observable<any> {
   }
 
 // Making the api call for the delete user endpoint
-deleteUser(): Observable<any> {
-    const userid = localStorage.getItem('userid');
+ddeleteUser(): Observable<any> {
+    const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users/' + userid, {
+    return this.http.delete(apiUrl + 'users/' + username, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
-        })
+        }),
+        responseType: 'text'
     }).pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
