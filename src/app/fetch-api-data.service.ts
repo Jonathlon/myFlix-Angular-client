@@ -86,7 +86,7 @@ getOneGenre(genreName: string): Observable<any> {
   }
 
 // Making the api call for the get user endpoint
-getOneUser(): Observable<any> {
+getUser(): Observable<any> {
     const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'users/' + username, {
