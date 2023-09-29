@@ -21,7 +21,7 @@ export class UserProfileComponent {
     }
 
     getUser(): void {
-        this.fetchApiData.getUser(localStorage.getItem('user')).subscribe((resp: any) => {
+        this.fetchApiData.getUser().subscribe((resp: any) => {
             this.user = resp;
             return this.user;
         });
@@ -29,7 +29,7 @@ export class UserProfileComponent {
 
    
     updateUser(): void {
-        this.fetchApiData.editUser(localStorage.getItem('user'), this.userData).subscribe((resp: any) => {
+        this.fetchApiData.editUser(this.userData).subscribe((resp: any) => {
             this.snackBar.open("Successfully changed userdata", 'OK', {
                 duration: 4000
             });

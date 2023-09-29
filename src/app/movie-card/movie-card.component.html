@@ -1,3 +1,11 @@
+<div class="button-container">
+    <button mat-raised-button (click)="goToProfile()" color="primary">
+        Go to profile
+    </button>
+    <button mat-raised-button (click)="logout()" color="primary">
+        Logout
+    </button>
+</div>
 <div style="display: flex;">
     <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
         <mat-card-header>
@@ -9,7 +17,7 @@
             <button mat-button color="primary">
                 Genre
             </button>
-            <button mat-button color="primary">
+            <button (click)="openDirector(movie.director)" mat-button color="primary">
                 Director
             </button>
             <button mat-button color="primary">

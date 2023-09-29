@@ -5,7 +5,7 @@
 }
 
 mat-card {
-    background-color: #ffffff;
+    background-color: #ccc;
     margin: 5px;
 }
 
@@ -25,4 +25,16 @@ img {
     max-height: 326px;
     max-width: 220px;
     object-fit: contain;
+    padding-left: 25px;
+}
+
+.button-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+button {
+    margin: 5px;
 }
