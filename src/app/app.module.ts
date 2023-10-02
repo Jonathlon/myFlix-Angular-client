@@ -22,6 +22,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { DirectorComponent } from './director/director.component';
+import { GenreComponent } from './genre/genre.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 
 const appRoutes: Routes = [
@@ -41,6 +43,8 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     UserProfileComponent,
     DirectorComponent,
+    GenreComponent,
+    MovieDetailsComponent,
   
   ],
   imports: [
