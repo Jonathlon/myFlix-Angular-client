@@ -22,10 +22,11 @@ export class UserProfileComponent {
 
     getUser(): void {
         this.fetchApiData.getUser().subscribe((resp: any) => {
-            this.user = console.log(resp);
-            return this.user;
+          this.user = resp;
+          console.log(resp);
+          return this.user;
         });
-    }
+      }
 
    
     updateUser(): void {
