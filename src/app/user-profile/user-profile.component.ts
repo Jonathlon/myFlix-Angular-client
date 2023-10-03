@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class UserProfileComponent {
     user: any = {};
-    @Input() userData = { Username: '', Password: '', Email: '', Birthdate: '' };
+    @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
     constructor(
         public fetchApiData: FetchApiDataService,
