@@ -15,10 +15,13 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class MovieCardComponent {
     movies: any[] = [];
+    userFavouriteMovies: any[] = [];
     constructor(
         public fetchApiData: FetchApiDataService,  
         private router: Router,
-        public dialog: MatDialog,) { }
+        public dialog: MatDialog,
+        private snackBar: MatSnackBar,
+        ) { }
   
   ngOnInit(): void {
     this.getMovies();
@@ -63,29 +66,29 @@ openMovie(movie: any): void {
     })
 }
 
-getFavouriteMovies(): void {
+getUserFavorites(): void {
     this.fetchApiData.getFavouriteMovies().subscribe((resp: any) => {
-        this.getFavouriteMovies = resp;
-        return this.getFavouriteMovies;
+        this.userFavouriteMovies = resp;
+        
     })
 }
 
 toggleFavourite(id: string): void {
-    if (this.favouriteMovie.includes(id)) {
+    if (this.userFavouriteMovies.includes(id)) {
         // Remove from favorites
-        this.fetchApiData.deleteFavouriteMovie().subscribe((resp: any) => {
+        this.fetchApiData.deleteFavouriteMovie(id).subscribe((resp: any) => {
             this.snackBar.open("Successfully removed movie from favorites", 'OK', {
                 duration: 4000
             });
-            this.getFavouriteMovies();
+            this.getUserFavorites();
         });
     } else {
         // Add to favorites
-        this.fetchApiData.addFavouriteMovie().subscribe((resp: any) => {
+        this.fetchApiData.addFavouriteMovie(id).subscribe((resp: any) => {
             this.snackBar.open("Successfully added movie to favorites", 'OK', {
                 duration: 4000
             });
-            this.getFavouriteMovies();
+            this.getUserFavorites();
         });
     }
 }
