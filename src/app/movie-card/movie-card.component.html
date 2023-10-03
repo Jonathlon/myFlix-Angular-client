@@ -23,7 +23,7 @@
             <button (click)="openMovie(movie)" mat-button color="primary">
                 Synopsis
             </button>
-            <mat-icon (click)="toggleFavourite(movie.id)">{{userFavouriteMovies.includes(movie.id) ?
+            <mat-icon (click)="toggleFavourite(movie._id)">{{userFavouriteMovies.includes(movie._id) ?
                 "favorite_filled" :
                 "favorite_border"}}</mat-icon>
         </mat-card-actions>

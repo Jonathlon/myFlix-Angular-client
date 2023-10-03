@@ -111,7 +111,7 @@ getFavouriteMovies(): Observable<any> {
         })
     }).pipe(
       map(this.extractResponseData),
-      map((data) => data.FavouriteMovie),
+      map((data) => data.FavoriteMovies),
       catchError(this.handleError)
     );
   }

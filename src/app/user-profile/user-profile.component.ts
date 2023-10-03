@@ -22,7 +22,7 @@ export class UserProfileComponent {
 
     getUser(): void {
         this.fetchApiData.getUser().subscribe((resp: any) => {
-            this.user = resp;
+            this.user = console.log(resp);
             return this.user;
         });
     }
