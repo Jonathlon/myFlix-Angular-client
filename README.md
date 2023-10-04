@@ -1,6 +1,25 @@
-# MyFlixAngularClient
+# MyFlix Angular Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
+![Screenshot 2023-10-03 at 17 06 59](https://github.com/Jonathlon/myFlix-Angular-client/assets/113617821/8e2ec042-bed7-4fe5-8c76-dc54f0fe18e2)
+
+
+This is the Angular frontend version of the MyFlix Movie Database. Users can register, log in, see all movies, see various movie details, view their account details, add and remove movies to and from their list of favorite movies and log out.
+
+## Used technologies
+
+- Angular
+- Angular Material
+- JavaScript
+- HTML
+- CSS/SCSS
+
+## Link to the live version
+
+The online hosted version of this app can be found here: [MyFlix Angular Client](https://jonathlon.github.io/myFlix-Angular-client/)
+
+# Technical information
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
 
 ## Development server
 
