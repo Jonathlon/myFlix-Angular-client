@@ -10,6 +10,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class UserProfileComponent {
     user: any = {};
     @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
+    userFavouriteMovies: any[] = [];
+    movies: any[] = [];
 
     constructor(
         public fetchApiData: FetchApiDataService,
@@ -40,5 +42,22 @@ export class UserProfileComponent {
                 duration: 4000
             });
         });
+    }
+
+    getMovies(): void {
+        this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+            this.movies = resp;
+            console.log(this.movies);
+            return this.movies;
+          });
+        }
+
+    getUserFavorites(): void {
+        this.fetchApiData.getFavouriteMovies().subscribe((resp: any) => {
+            this.userFavouriteMovies = resp;
+            this.getMovies = resp;
+            console.log(this.userFavouriteMovies)
+            
+        })
     }
 }
