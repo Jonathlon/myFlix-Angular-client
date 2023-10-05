@@ -20,6 +20,7 @@ export class UserProfileComponent {
 
     ngOnInit(): void {
         this.getUser();
+        this.getUserFavorites();
     }
 
     getUser(): void {
@@ -44,20 +45,28 @@ export class UserProfileComponent {
         });
     }
 
-    getMovies(): void {
-        this.fetchApiData.getAllMovies().subscribe((resp: any) => {
-            this.movies = resp;
-            console.log(this.movies);
-            return this.movies;
-          });
-        }
-
     getUserFavorites(): void {
-        this.fetchApiData.getFavouriteMovies().subscribe((resp: any) => {
-            this.userFavouriteMovies = resp;
-            this.getMovies = resp;
-            console.log(this.userFavouriteMovies)
+        this.fetchApiData.getFavouriteMovies().subscribe((favMoviesIDs: any) => {
+            this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+            this.movies = resp
+            this.userFavouriteMovies = this.movies.filter(movie => favMoviesIDs.includes(movie._id))
             
+            });
         })
     }
-}
+
+    deleteAccount(): void {
+        this.fetchApiData.deleteUser().subscribe((resp: any) => {
+            this.snackBar.open("Successfully Deleted Account", 'OK', {
+                duration: 4000
+            });
+            this.deleteAccount();
+        }, (result) => {
+            this.snackBar.open(result, 'OK', {
+                duration: 4000
+            });
+        });
+        }
+        
+    }
+

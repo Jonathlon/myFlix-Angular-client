@@ -29,20 +29,21 @@
 
 
     <mat-card class="mat-card">
-        <mat-card-header>
-            <mat-card-title>{{userFavouriteMovies.Title}}</mat-card-title>
-            <mat-card-subtitle>
-                Driected by: {{ userFavouriteMovies.Director.Name}}
-            </mat-card-subtitle>
-        </mat-card-header>
-        <mat-dialog-content>
-            <img src="{{userFavouriteMovies.ImageURL}}" alt="{{userFavouriteMovies.Title}}" class="movie-img" />
-        </mat-dialog-content>
-
-
         <mat-card-actions>
             <button mat-raised-button (click)="updateUser()" color="primary">
                 Update
             </button>
+            <button mat-raised-button (click)="deleteAccount()" color="primary">
+                Delete Account
+            </button>
         </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="mat-card" *ngFor="let movie of userFavouriteMovies">
+        <mat-card-header>
+            <mat-card-title>{{movie.Title}}</mat-card-title>
+        </mat-card-header>
+        <mat-dialog-content>
+            <img src="{{movie.ImagePath}}" alt="{{movie.Title}}" class="movie-img" />
+        </mat-dialog-content>
     </mat-card>
