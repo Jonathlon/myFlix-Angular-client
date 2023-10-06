@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-user-profile',
@@ -15,12 +16,16 @@ export class UserProfileComponent {
 
     constructor(
         public fetchApiData: FetchApiDataService,
-        public snackBar: MatSnackBar
+        public snackBar: MatSnackBar,
+        public router: Router,
     ) { }
 
     ngOnInit(): void {
         this.getUser();
         this.getUserFavorites();
+        if (localStorage.getItem('token')){
+            this.router.navigate(["welcome"]);
+          }
     }
 
     getUser(): void {
