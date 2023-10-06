@@ -26,7 +26,7 @@ export class MovieCardComponent {
   ngOnInit(): void {
     this.getMovies();
     this.getUserFavorites();
-    if (localStorage.getItem('token')){
+    if (!localStorage.getItem('token')){
         this.router.navigate(["welcome"]);
       }
   }

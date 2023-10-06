@@ -23,7 +23,7 @@ export class UserProfileComponent {
     ngOnInit(): void {
         this.getUser();
         this.getUserFavorites();
-        if (localStorage.getItem('token')){
+        if (!localStorage.getItem('token')){
             this.router.navigate(["welcome"]);
           }
     }
@@ -65,7 +65,8 @@ export class UserProfileComponent {
             this.snackBar.open("Successfully Deleted Account", 'OK', {
                 duration: 4000
             });
-            this.deleteAccount();
+            localStorage.clear()
+            this.router.navigate(['welcome'])
         }, (result) => {
             this.snackBar.open(result, 'OK', {
                 duration: 4000
