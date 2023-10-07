@@ -28,6 +28,10 @@ export class UserProfileComponent {
           }
     }
 
+/**
+ * Get user details from localStorage
+ */
+
     getUser(): void {
         this.fetchApiData.getUser().subscribe((resp: any) => {
           this.user = resp;
@@ -35,6 +39,10 @@ export class UserProfileComponent {
           return this.user;
         });
       }
+
+/**
+ * Update user details to API
+*/
 
    
     updateUser(): void {
@@ -50,6 +58,10 @@ export class UserProfileComponent {
         });
     }
 
+/**
+ * Get user favourites from localStorage
+ */
+
     getUserFavorites(): void {
         this.fetchApiData.getFavouriteMovies().subscribe((favMoviesIDs: any) => {
             this.fetchApiData.getAllMovies().subscribe((resp: any) => {
@@ -59,6 +71,10 @@ export class UserProfileComponent {
             });
         })
     }
+
+/**
+ * Delete user from API and localstorage and route to welcome page
+ */
 
     deleteAccount(): void {
         this.fetchApiData.deleteUser().subscribe((resp: any) => {

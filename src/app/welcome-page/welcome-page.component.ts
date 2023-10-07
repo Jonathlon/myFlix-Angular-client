@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./welcome-page.component.scss']
 })
 
+ 
 export class WelcomePageComponent implements OnInit {
   constructor(public dialog: MatDialog, public router: Router) { }
   ngOnInit(): void {
@@ -19,11 +20,24 @@ export class WelcomePageComponent implements OnInit {
     }
   }
 
+// This is the function that will open the dialog when the signup button is clicked  
+
+/**
+ * Open dialogue to register user
+ */
+
+
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
       width: '280px'
     });
   }
+// Login function call
+
+/**
+ * Open dialogue to login user
+ */
+
 openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {
       width: '280px'
